@@ -7,16 +7,16 @@
         class="text-left hover:text-gray-900 flex items-center gap-1"
         @click="$emit('toggle-sort')"
       >
-        Дата и время
+        {{ $t("sessionsTable.dateTime") }}
         <span v-if="sort.key === 'date'">
           {{ sort.dir === "asc" ? "▲" : "▼" }}
         </span>
       </button>
-      <div>Статус</div>
-      <div>Название учебного модуля</div>
-      <div>Тип сессии</div>
-      <div>Комната</div>
-      <div>Пользователи</div>
+      <div>{{ $t("sessionsTable.status") }}</div>
+      <div>{{ $t("sessionsTable.moduleName") }}</div>
+      <div>{{ $t("sessionsTable.sessionType") }}</div>
+      <div>{{ $t("sessionsTable.room") }}</div>
+      <div>{{ $t("sessionsTable.users") }}</div>
     </div>
 
     <div class="overflow-y-auto" style="max-height: 520px">
@@ -57,7 +57,7 @@
         v-if="rows.length === 0"
         class="text-center text-gray-500 py-4 text-xs"
       >
-        Нет данных для отображения
+        {{ $t("sessionsTable.noData") }}
       </div>
     </div>
   </div>
@@ -69,6 +69,9 @@ import type { Session } from "@/types/sessions";
 import UiBadge from "@/components/ui/UIBadge.vue";
 import { formatDateRange } from "@/utils/formatters";
 import { getStatusColor, getStatusLabel, getTypeLabel } from "@/utils/mappers";
+import { useI18n } from "vue-i18n";
+
+const { t } = useI18n();
 
 defineProps<{
   rows: Session[];
