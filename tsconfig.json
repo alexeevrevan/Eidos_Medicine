@@ -15,6 +15,7 @@
     "sourceMap": true,
     "skipLibCheck": true,
     "allowJs": true,
+    "resolveJsonModule": true,
     "lib": ["esnext", "dom", "dom.iterable", "scripthost"]
   },
   "include": [

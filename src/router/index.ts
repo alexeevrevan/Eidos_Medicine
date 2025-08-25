@@ -21,7 +21,7 @@ router.beforeEach((to, _from, next) => {
 
   if (isAuthenticated && userRole) {
     if (to.meta.requiresAuth) {
-      const routeName = to.name as keyof typeof ROLE_ACCESS;
+      const routeName = to.name as string;
 
       if (userRole === "Преподаватель") {
         next();
@@ -31,15 +31,11 @@ router.beforeEach((to, _from, next) => {
       const hasAccess = ROLE_ACCESS[userRole].includes(routeName);
 
       if (!hasAccess) {
-        next({ name: DEFAULT_ROUTES[userRole] });
+        const defaultRoute = DEFAULT_ROUTES[userRole];
+        next({ path: defaultRoute });
         return;
       }
     }
-  }
-
-  if (to.name === "login" && isAuthenticated) {
-    next("/schedule");
-    return;
   }
 
   next();

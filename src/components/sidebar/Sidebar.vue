@@ -77,7 +77,6 @@ const toggle = () => ui.toggleSidebar();
 const route = useRoute();
 const r = useRouter();
 
-// Получаем все роуты с флагом showInSidebar
 const allMenuItems = computed(() =>
   router
     .getRoutes()
