@@ -8,6 +8,7 @@ export const routes: RouteRecordRaw[] = [
     meta: {
       layout: "empty",
       requiresAuth: false,
+      title: "routes.login",
     },
   },
   {
@@ -23,7 +24,7 @@ export const routes: RouteRecordRaw[] = [
         name: "schedule",
         component: () => import("@/views/ScheduleView.vue"),
         meta: {
-          title: "Расписание",
+          title: "routes.schedule",
           icon: "mdi:calendar-outline",
           showInSidebar: true,
         },
@@ -33,7 +34,7 @@ export const routes: RouteRecordRaw[] = [
         name: "sessions",
         component: () => import("@/views/SessionsView.vue"),
         meta: {
-          title: "Учебные сессии",
+          title: "routes.sessions",
           icon: "mdi:school-outline",
           showInSidebar: true,
         },
@@ -43,7 +44,7 @@ export const routes: RouteRecordRaw[] = [
         name: "rooms",
         component: () => import("@/views/RoomsView.vue"),
         meta: {
-          title: "Список комнат",
+          title: "routes.rooms",
           icon: "mdi:office-building-outline",
           showInSidebar: true,
         },
@@ -53,7 +54,7 @@ export const routes: RouteRecordRaw[] = [
         name: "users",
         component: () => import("@/views/SessionsView.vue"),
         meta: {
-          title: "Пользователи",
+          title: "routes.users",
           icon: "mdi:account-outline",
           showInSidebar: true,
         },
@@ -63,7 +64,7 @@ export const routes: RouteRecordRaw[] = [
         name: "groups",
         component: () => import("@/views/GroupsView.vue"),
         meta: {
-          title: "Учебные группы",
+          title: "routes.groups",
           icon: "mdi:account-multiple-outline",
           showInSidebar: true,
         },
@@ -73,7 +74,7 @@ export const routes: RouteRecordRaw[] = [
         name: "devices",
         component: () => import("@/views/DevicesView.vue"),
         meta: {
-          title: "Список устройств",
+          title: "routes.devices",
           icon: "mdi:devices",
           showInSidebar: true,
         },
@@ -83,7 +84,7 @@ export const routes: RouteRecordRaw[] = [
         name: "settings",
         component: () => import("@/views/SettingsView.vue"),
         meta: {
-          title: "Настройки системы",
+          title: "routes.settings",
           icon: "mdi:cog-outline",
           showInSidebar: true,
         },
@@ -93,7 +94,7 @@ export const routes: RouteRecordRaw[] = [
         name: "archive",
         component: () => import("@/views/ArchiveView.vue"),
         meta: {
-          title: "Архив",
+          title: "routes.archive",
           icon: "mdi:archive-outline",
           showInSidebar: true,
         },
@@ -102,7 +103,9 @@ export const routes: RouteRecordRaw[] = [
         path: "/profile",
         name: "profile",
         component: () => import("@/views/ProfileView.vue"),
-        meta: { title: "Профиль" },
+        meta: {
+          title: "routes.profile",
+        },
       },
     ],
   },

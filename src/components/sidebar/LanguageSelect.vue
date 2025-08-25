@@ -6,8 +6,8 @@
           class="w-full appearance-none bg-white border border-gray-200 rounded-xl py-2.5 pl-10 pr-8 text-sm focus:outline-none focus:ring-2 focus:ring-blue-200"
           v-model="lang"
         >
-          <option value="ru">Русский</option>
-          <option value="pl">Польский</option>
+          <option value="ru">{{ $t("languageSelect.russian") }}</option>
+          <option value="pl">{{ $t("languageSelect.polish") }}</option>
         </select>
         <span
           class="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 rounded-sm overflow-hidden"

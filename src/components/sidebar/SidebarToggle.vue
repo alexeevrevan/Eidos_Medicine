@@ -2,7 +2,7 @@
   <button
     @click="$emit('toggle')"
     class="w-7 h-7 rounded-full bg-black shadow flex items-center justify-center transition absolute -right-3.5 top-30"
-    :title="collapsed ? 'Развернуть' : 'Свернуть'"
+    :title="collapsed ? $t('sidebar.expand') : $t('sidebar.collapse')"
   >
     <Icon
       :icon="collapsed ? 'mdi:chevron-right' : 'mdi:chevron-left'"

@@ -2,7 +2,7 @@
   <div id="app">
     <router-view v-slot="{ Component }">
       <template v-if="Component">
-        <component :is="layout" :key="$route.path">
+        <component :is="layout" :key="route.path">
           <component :is="Component" />
         </component>
       </template>
@@ -14,10 +14,11 @@
 import { computed } from "vue";
 import { useRoute } from "vue-router";
 import DashboardLayout from "@/layouts/DashboardLayout.vue";
+import type { Component } from "vue";
 
 const route = useRoute();
 
-const layout = computed(() => {
+const layout = computed<Component | string>(() => {
   return route.meta.layout === "empty" ? "div" : DashboardLayout;
 });
 </script>

@@ -1,0 +1,89 @@
+{
+  "sessions": {
+    "title": "Учебные сессии",
+    "searchPlaceholder": "Поиск",
+    "createButton": "Создать",
+    "openFilters": "Открыть фильтры",
+    "openSort": "Открыть сортировку",
+    "create": "Создать сессию"
+  },
+  "languageSelect": {
+    "russian": "Русский",
+    "polish": "Польский"
+  },
+  "logo": {
+    "alt": "Логотип",
+    "title": "Сим Центр"
+  },
+  "sidebar": {
+    "logout": "Выйти",
+    "version": "Версия",
+    "expand": "Развернуть",
+    "collapse": "Свернуть"
+  },
+  "search": {
+    "placeholder": "Поиск",
+    "clear": "Очистить"
+  },
+  "routes": {
+    "schedule": "Расписание",
+    "sessions": "Учебные сессии",
+    "rooms": "Список комнат",
+    "users": "Пользователи",
+    "groups": "Учебные группы",
+    "devices": "Список устройств",
+    "settings": "Настройки системы",
+    "archive": "Архив",
+    "profile": "Профиль",
+    "login": "Вход"
+  },
+  "statuses": {
+    "planned": "Запланировано",
+    "in_progress": "Идет",
+    "finished": "Завершено",
+    "canceled": "Отменено",
+    "completed": "Завершено"
+  },
+  "types": {
+    "accreditation": "Аккредитация",
+    "lesson": "Урок",
+    "exam": "Экзамен"
+  },
+  "archive": {
+    "title": "Архив",
+    "description": "Хранилище завершенных проектов и документов"
+  },
+  "devices": {
+    "title": "Список устройств",
+    "description": "Инвентаризация и управление техническими устройствами"
+  },
+  "studyGroups": {
+    "title": "Учебные группы",
+    "description": "Список и управление учебными группами"
+  },
+  "login": {
+    "title": "Вход в систему",
+    "firstName": "Имя",
+    "lastName": "Фамилия",
+    "role": "Роль",
+    "submit": "Войти"
+  },
+  "userProfile": {
+    "title": "Профиль пользователя",
+    "firstName": "Имя",
+    "lastName": "Фамилия",
+    "role": "Роль"
+  },
+  "rooms": {
+    "title": "Список комнат",
+    "description": "Здесь будет отображаться информация о доступных помещениях"
+  },
+  "schedule": {
+    "title": "Расписание",
+    "description": "Здесь будет отображаться расписание занятий"
+  },
+  "systemSettings": {
+    "title": "Настройки системы",
+    "description": "Параметры конфигурации и администрирования"
+  }
+}

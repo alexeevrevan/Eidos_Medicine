@@ -10,10 +10,10 @@
     <button
       @click="logout"
       class="flex items-center gap-3 px-3 py-2 rounded-xl text-left hover:bg-gray-100 transition"
-      :title="'Выйти'"
+      :title="$t('sidebar.logout')"
     >
       <Icon icon="mdi:logout" class="text-[20px] text-gray-500" />
-      <span v-if="!collapsed">Выйти</span>
+      <span v-if="!collapsed">{{ $t("sidebar.logout") }}</span>
     </button>
 
     <LanguageSelect :collapsed="collapsed" />
@@ -22,7 +22,7 @@
       class="text-xs text-gray-400 px-1"
       :class="collapsed ? 'text-center' : ''"
     >
-      Версия {{ APP_VERSION }}
+      {{ $t("sidebar.version") }} {{ APP_VERSION }}
     </div>
   </div>
 </template>

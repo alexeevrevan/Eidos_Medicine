@@ -16,7 +16,7 @@
           v-for="item in menuItems"
           :key="item.path"
           :to="item.path"
-          :label="item.meta.title || ''"
+          :label="$t(item.meta.title as string)"
           :icon="item.meta.icon || ''"
           :active="item.path === route.path"
           :collapsed="collapsed"
@@ -37,7 +37,6 @@ import SidebarItem from "./SidebarItem.vue";
 import SidebarToggle from "./SidebarToggle.vue";
 import SidebarFooter from "./SidebarFooter.vue";
 import { useUiStore } from "@/stores/ui";
-import { useAuthStore } from "@/stores/auth";
 import router from "@/router";
 import { getAccessibleMenuItems } from "@/utils/menuUtils";
 
@@ -49,5 +48,13 @@ const toggle = () => ui.toggleSidebar();
 
 const route = useRoute();
 
-const menuItems = computed(() => getAccessibleMenuItems(router.getRoutes()));
+const menuItems = computed(() =>
+  getAccessibleMenuItems(router.getRoutes()).map((item) => ({
+    ...item,
+    meta: {
+      ...item.meta,
+      title: item.meta.title,
+    },
+  }))
+);
 </script>

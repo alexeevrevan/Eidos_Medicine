@@ -6,7 +6,7 @@
     />
     <input
       :value="modelValue"
-      :placeholder="placeholder"
+      :placeholder="placeholder || $t('search.placeholder')"
       @input="
         $emit('update:modelValue', ($event.target as HTMLInputElement).value)
       "
@@ -18,7 +18,7 @@
       type="button"
       class="absolute right-2 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
       @click="$emit('update:modelValue', '')"
-      title="Очистить"
+      :title="$t('search.clear')"
     >
       <Icon icon="mdi:close" class="w-5 h-5" />
     </button>

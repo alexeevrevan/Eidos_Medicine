@@ -31,6 +31,9 @@ import type { SortConfig } from "@/types/sessions";
 import SessionsHeader from "@/components/sessions/SessionsHeader.vue";
 import SessionsTable from "@/components/sessions/SessionsTable.vue";
 import UiPagination from "@/components/ui/UIPagination.vue";
+import { useI18n } from "vue-i18n";
+
+const { t } = useI18n();
 
 const rows = ref(getSessions());
 const page = ref(1);
@@ -62,12 +65,12 @@ function onPageChange({ page: p }: { page: number }) {
 
 function onSearch() {}
 function onOpenFilters() {
-  console.debug("Открыть фильтры");
+  console.debug(t("sessions.openFilters"));
 }
 function onOpenSort() {
-  console.debug("Открыть сортировку");
+  console.debug(t("sessions.openSort"));
 }
 function onCreate() {
-  console.debug("Создать сессию");
+  console.debug(t("sessions.create"));
 }
 </script>

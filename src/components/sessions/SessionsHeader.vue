@@ -1,11 +1,13 @@
 <template>
   <div class="mb-2">
     <div class="flex items-center gap-2">
-      <h1 class="text-xl font-bold mr-auto">Учебные сессии</h1>
+      <h1 class="text-xl font-bold mr-auto">
+        {{ $t("sessions.title") }}
+      </h1>
 
       <UiSearchInput
         v-model="searchText"
-        placeholder="Поиск"
+        :placeholder="$t('sessions.searchPlaceholder')"
         class="w-56"
         @submit.prevent="onSearch"
       />
@@ -21,7 +23,7 @@
         @click="$emit('open-sort')"
       />
 
-      <UiButton label="Создать" @click="$emit('create')" />
+      <UiButton :label="$t('sessions.createButton')" @click="$emit('create')" />
     </div>
   </div>
 </template>

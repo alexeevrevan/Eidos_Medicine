@@ -1,10 +1,16 @@
 <template>
   <div class="bg-white rounded-xl shadow p-6">
-    <h2 class="text-xl font-semibold mb-4">Профиль пользователя</h2>
+    <h2 class="text-xl font-semibold mb-4">{{ $t("userProfile.title") }}</h2>
     <div v-if="user" class="space-y-2">
-      <div><b>Имя:</b> {{ user.firstName }}</div>
-      <div><b>Фамилия:</b> {{ user.lastName }}</div>
-      <div><b>Роль:</b> {{ user.role }}</div>
+      <div>
+        <b>{{ $t("userProfile.firstName") }}:</b> {{ user.firstName }}
+      </div>
+      <div>
+        <b>{{ $t("userProfile.lastName") }}:</b> {{ user.lastName }}
+      </div>
+      <div>
+        <b>{{ $t("userProfile.role") }}:</b> {{ user.role }}
+      </div>
     </div>
   </div>
 </template>
