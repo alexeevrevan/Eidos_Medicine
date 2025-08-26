@@ -9,10 +9,11 @@
 
     <SessionsTable :rows="pagedRows" :sort="sort" @toggle-sort="toggleSort" />
 
-    <div class="pt-2">
+    <div class="pt-4">
       <UiPagination
         v-model:page="page"
-        :total="rows.length"
+        :total="filteredRows.length"
+        :page-size="pageSize"
         @change="onPageChange"
       />
     </div>
@@ -25,6 +26,7 @@ import {
   getSessions,
   sortSessionsByDate,
   paginateSessions,
+  filterSessionsByModule,
 } from "@/services/sessions";
 import type { SortConfig } from "@/types/sessions";
 
@@ -38,6 +40,7 @@ const { t } = useI18n();
 const rows = ref(getSessions());
 const page = ref(1);
 const pageSize = ref(25);
+const search = ref("");
 
 const sort = ref<SortConfig>({
   key: "date",
@@ -48,8 +51,12 @@ const sortedRows = computed(() =>
   sortSessionsByDate(rows.value, sort.value.dir)
 );
 
+const filteredRows = computed(() =>
+  filterSessionsByModule(sortedRows.value, search.value)
+);
+
 const pagedRows = computed(() =>
-  paginateSessions(sortedRows.value, page.value, pageSize.value)
+  paginateSessions(filteredRows.value, page.value, pageSize.value)
 );
 
 function toggleSort() {
@@ -63,14 +70,20 @@ function onPageChange({ page: p }: { page: number }) {
   page.value = p;
 }
 
-function onSearch() {}
+function onSearch(query: string) {
+  search.value = query;
+  page.value = 1;
+}
+
 function onOpenFilters() {
-  console.debug(t("sessions.openFilters"));
+  console.log(t("sessions.openFilters"));
 }
+
 function onOpenSort() {
-  console.debug(t("sessions.openSort"));
+  console.log(t("sessions.openSort"));
 }
+
 function onCreate() {
-  console.debug(t("sessions.create"));
+  console.log(t("sessions.create"));
 }
 </script>

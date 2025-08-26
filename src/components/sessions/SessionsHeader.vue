@@ -9,7 +9,7 @@
         v-model="searchText"
         :placeholder="$t('sessions.searchPlaceholder')"
         class="w-56"
-        @submit.prevent="onSearch"
+        @submit="onSearch"
       />
 
       <UiIconButton

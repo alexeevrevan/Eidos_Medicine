@@ -33,3 +33,16 @@ export function paginateSessions(
   const start = (page - 1) * pageSize;
   return sessions.slice(start, start + pageSize);
 }
+
+export function filterSessionsByModule(
+  sessions: Session[],
+  query: string
+): Session[] {
+  if (!query) return sessions;
+
+  const normalizedQuery = query.trim().toLocaleLowerCase();
+
+  return sessions.filter((session) =>
+    (session.module || "").toLocaleLowerCase().includes(normalizedQuery)
+  );
+}
