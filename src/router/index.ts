@@ -3,6 +3,7 @@ import { useAuthStore } from "@/stores/auth";
 import { ROLE_ACCESS } from "@/constants/roleAccess";
 import { DEFAULT_ROUTES } from "@/constants/defaultRoutes";
 import { routes } from "@/constants/routes";
+import { Role } from "@/types";
 
 export const router = createRouter({
   history: createWebHistory(),
@@ -11,8 +12,8 @@ export const router = createRouter({
 
 router.beforeEach((to, _from, next) => {
   const authStore = useAuthStore();
-  const isAuthenticated = authStore.isAuthenticated;
-  const userRole = authStore.user?.role;
+  const isAuthenticated: boolean = authStore.isAuthenticated;
+  const userRole: Role | undefined = authStore.user?.role;
 
   if (to.meta.requiresAuth && !isAuthenticated) {
     next("/login");
@@ -28,7 +29,7 @@ router.beforeEach((to, _from, next) => {
         return;
       }
 
-      const hasAccess = ROLE_ACCESS[userRole].includes(routeName);
+      const hasAccess: boolean = ROLE_ACCESS[userRole].includes(routeName);
 
       if (!hasAccess) {
         const defaultRoute = DEFAULT_ROUTES[userRole];

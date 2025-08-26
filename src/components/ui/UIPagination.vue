@@ -43,7 +43,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from "vue";
+import { computed, ComputedRef } from "vue";
 import { Icon } from "@iconify/vue";
 
 const props = defineProps<{
@@ -56,17 +56,17 @@ const emit = defineEmits<{
   (e: "change", payload: { page: number }): void;
 }>();
 
-const pageSize = 25;
-const totalPages = computed(() =>
+const pageSize: number = 25;
+const totalPages: ComputedRef<number> = computed(() =>
   Math.max(1, Math.ceil(props.total / pageSize))
 );
 
-const pages = computed(() =>
+const pages: ComputedRef<number[]> = computed(() =>
   Array.from({ length: totalPages.value }, (_, i) => i + 1)
 );
 
 function setPage(p: number) {
-  const safe = Math.min(Math.max(1, p), totalPages.value);
+  const safe: number = Math.min(Math.max(1, p), totalPages.value);
   emit("update:page", safe);
   emit("change", { page: safe });
 }

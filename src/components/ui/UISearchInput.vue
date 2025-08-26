@@ -35,17 +35,17 @@ const emit = defineEmits<{
   (e: "submit"): void;
 }>();
 
-function handleInput(event: Event) {
+function handleInput(event: Event): void {
   const input = event.target as HTMLInputElement;
   emit("update:modelValue", input.value);
 }
 
-function handleSubmit(event: Event) {
+function handleSubmit(event: Event): void {
   event.preventDefault();
   emit("submit");
 }
 
-function clearInput() {
+function clearInput(): void {
   emit("update:modelValue", "");
 }
 </script>

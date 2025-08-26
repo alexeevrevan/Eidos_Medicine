@@ -29,16 +29,16 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
+import { Ref, ref } from "vue";
 import UiSearchInput from "@/components/ui/UISearchInput.vue";
 import UiIconButton from "@/components/ui/UIIconButton.vue";
 import UiButton from "@/components/ui/UIButton.vue";
 
-const searchText = ref("");
+const searchText: Ref<string, string> = ref("");
 
 const emit = defineEmits(["search", "open-filters", "open-sort", "create"]);
 
-function onSearch() {
+function onSearch(): void {
   emit("search", searchText.value);
 }
 </script>

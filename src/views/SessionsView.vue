@@ -59,7 +59,7 @@ const pagedRows = computed(() =>
   paginateSessions(filteredRows.value, page.value, pageSize.value)
 );
 
-function toggleSort() {
+function toggleSort(): void {
   sort.value = {
     key: "date",
     dir: sort.value.dir === "asc" ? "desc" : "asc",
@@ -70,20 +70,20 @@ function onPageChange({ page: p }: { page: number }) {
   page.value = p;
 }
 
-function onSearch(query: string) {
+function onSearch(query: string): void {
   search.value = query;
   page.value = 1;
 }
 
-function onOpenFilters() {
+function onOpenFilters(): void {
   console.log(t("sessions.openFilters"));
 }
 
-function onOpenSort() {
+function onOpenSort(): void {
   console.log(t("sessions.openSort"));
 }
 
-function onCreate() {
+function onCreate(): void {
   console.log(t("sessions.create"));
 }
 </script>

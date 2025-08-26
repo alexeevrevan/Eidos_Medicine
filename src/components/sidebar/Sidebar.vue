@@ -29,8 +29,8 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from "vue";
-import { useRoute } from "vue-router";
+import { computed, Ref } from "vue";
+import { RouteLocationNormalizedGeneric, useRoute } from "vue-router";
 import { storeToRefs } from "pinia";
 import Logo from "./Logo.vue";
 import SidebarItem from "./SidebarItem.vue";
@@ -43,10 +43,10 @@ import { getAccessibleMenuItems } from "@/utils/menuUtils";
 const ui = useUiStore();
 const { sidebarCollapsed } = storeToRefs(ui);
 
-const collapsed = sidebarCollapsed;
-const toggle = () => ui.toggleSidebar();
+const collapsed: Ref<boolean, boolean> = sidebarCollapsed;
+const toggle = (): void => ui.toggleSidebar();
 
-const route = useRoute();
+const route: RouteLocationNormalizedGeneric = useRoute();
 
 const menuItems = computed(() =>
   getAccessibleMenuItems(router.getRoutes()).map((item) => ({

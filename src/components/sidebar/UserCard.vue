@@ -25,8 +25,8 @@
 </template>
 
 <script setup lang="ts">
-import type { User } from "@/types";
-import { computed } from "vue";
+import type { Role, User } from "@/types";
+import { computed, ComputedRef } from "vue";
 import { getInitials } from "@/utils/avatar";
 
 const props = defineProps<{
@@ -36,13 +36,13 @@ const props = defineProps<{
 
 defineEmits<{ (e: "openProfile"): void }>();
 
-const fullName = computed(
+const fullName: ComputedRef<string> = computed(
   () => `${props.user.firstName} ${props.user.lastName}`
 );
 
-const role = computed(() => props.user.role);
+const role: ComputedRef<Role> = computed(() => props.user.role);
 
-const initials = computed(() =>
+const initials: ComputedRef<string> = computed(() =>
   getInitials(props.user.firstName, props.user.lastName)
 );
 </script>

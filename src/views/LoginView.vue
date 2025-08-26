@@ -59,21 +59,21 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
+import { Ref, ref } from "vue";
 import { useRouter } from "vue-router";
 import { useAuthStore } from "@/stores/auth";
 import type { Role } from "@/types";
 
-const firstName = ref("Иван");
-const lastName = ref("Петров");
-const role = ref<Role>("Преподаватель");
+const firstName: Ref<string, string> = ref("Иван");
+const lastName: Ref<string, string> = ref("Петров");
+const role: Ref<Role, Role> = ref<Role>("Преподаватель");
 
 const roleOptions: Role[] = ["Преподаватель", "Админ", "Пользователь"];
 
 const auth = useAuthStore();
 const router = useRouter();
 
-const onSubmit = () => {
+const onSubmit = (): void => {
   auth.login({
     id: crypto.randomUUID(),
     firstName: firstName.value,

@@ -13,7 +13,7 @@
 import { computed } from "vue";
 
 const props = defineProps<{
-  color?: "gray" | "blue" | "yellow" | "green" | "red" | string;
+  color?: string;
 }>();
 
 const colorClass = computed(() => {

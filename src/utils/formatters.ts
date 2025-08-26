@@ -1,15 +1,15 @@
-export function formatDateRange(startIso: string, endIso: string) {
-  const start = new Date(startIso);
-  const end = new Date(endIso);
+export function formatDateRange(startIso: string, endIso: string): string {
+  const start: Date = new Date(startIso);
+  const end: Date = new Date(endIso);
 
-  const dd = (n: number) => String(n).padStart(2, "0");
+  const dd = (n: number): string => String(n).padStart(2, "0");
 
-  const date = `${dd(start.getDate())}.${dd(
+  const date: string = `${dd(start.getDate())}.${dd(
     start.getMonth() + 1
   )}.${start.getFullYear()}`;
-  const time = `${dd(start.getHours())}:${dd(start.getMinutes())} - ${dd(
-    end.getHours()
-  )}:${dd(end.getMinutes())}`;
+  const time: string = `${dd(start.getHours())}:${dd(
+    start.getMinutes()
+  )} - ${dd(end.getHours())}:${dd(end.getMinutes())}`;
 
   return `${date}, ${time}`;
 }

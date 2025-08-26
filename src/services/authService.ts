@@ -12,11 +12,11 @@ export const authService = {
       return null;
     }
   },
-  loginMock(user: User) {
+  loginMock(user: User): User {
     localStorage.setItem(LS_KEY, JSON.stringify(user));
     return user;
   },
-  logout() {
+  logout(): void {
     localStorage.removeItem(LS_KEY);
   },
 };

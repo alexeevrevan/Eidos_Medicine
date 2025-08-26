@@ -17,7 +17,7 @@ export function getSessions(): Session[] {
 export function sortSessionsByDate(
   sessions: Session[],
   direction: "asc" | "desc" = "desc"
-) {
+): Session[] {
   return [...sessions].sort((a, b) => {
     const aStart = new Date(a.start).getTime();
     const bStart = new Date(b.start).getTime();
@@ -29,8 +29,8 @@ export function paginateSessions(
   sessions: Session[],
   page: number,
   pageSize: number
-) {
-  const start = (page - 1) * pageSize;
+): Session[] {
+  const start: number = (page - 1) * pageSize;
   return sessions.slice(start, start + pageSize);
 }
 
@@ -40,9 +40,9 @@ export function filterSessionsByModule(
 ): Session[] {
   if (!query) return sessions;
 
-  const normalizedQuery = query.trim().toLocaleLowerCase();
+  const normalizedQuery: string = query.trim().toLocaleLowerCase();
 
-  return sessions.filter((session) =>
+  return sessions.filter((session: Session) =>
     (session.module || "").toLocaleLowerCase().includes(normalizedQuery)
   );
 }

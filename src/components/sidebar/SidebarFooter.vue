@@ -30,14 +30,14 @@
 <script setup lang="ts">
 import { storeToRefs } from "pinia";
 import { Icon } from "@iconify/vue";
-import { useRouter } from "vue-router";
+import { NavigationFailure, Router, useRouter } from "vue-router";
 import { useAuthStore } from "@/stores/auth";
 import UserCard from "./UserCard.vue";
 import LanguageSelect from "./LanguageSelect.vue";
 import { APP_VERSION } from "@/environments/version";
 
 const auth = useAuthStore();
-const router = useRouter();
+const router: Router = useRouter();
 
 const { user } = storeToRefs(auth);
 
@@ -45,9 +45,10 @@ const props = defineProps<{
   collapsed: boolean;
 }>();
 
-const goProfile = () => router.push({ name: "profile" });
+const goProfile = (): Promise<void | NavigationFailure | undefined> =>
+  router.push({ name: "profile" });
 
-const logout = () => {
+const logout = (): void => {
   auth.logout();
   router.push({ name: "login" });
 };

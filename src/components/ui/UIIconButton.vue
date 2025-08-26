@@ -14,7 +14,7 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from "vue";
+import { computed, ComputedRef } from "vue";
 import { Icon } from "@iconify/vue";
 
 const props = withDefaults(
@@ -31,7 +31,7 @@ const props = withDefaults(
 
 defineEmits<{ (e: "click"): void }>();
 
-const variantClass = computed(() => {
+const variantClass: ComputedRef<string> = computed(() => {
   switch (props.variant) {
     case "ghost":
       return "bg-transparent text-gray-700 hover:bg-gray-100";
