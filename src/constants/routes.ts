@@ -52,7 +52,7 @@ export const routes: RouteRecordRaw[] = [
       {
         path: "/users",
         name: "users",
-        component: () => import("@/views/SessionsView.vue"),
+        component: () => import("@/views/UsersView.vue"),
         meta: {
           title: "routes.users",
           icon: "mdi:account-outline",
